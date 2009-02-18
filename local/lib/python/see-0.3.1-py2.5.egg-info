@@ -1,0 +1,18 @@
+Metadata-Version: 1.0
+Name: see
+Version: 0.3.1
+Summary: A human-readable alternative to dir
+Home-page: http://github.com/inky/see/tree/master
+Author: Liam Cooke
+Author-email: liamcooke@gmail.com
+License: UNKNOWN
+Description: UNKNOWN
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Environment :: Console
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: GNU General Public License (GPL)
+Classifier: Natural Language :: English
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Topic :: Software Development
