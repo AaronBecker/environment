@@ -8,7 +8,7 @@
 test -r /sw/bin/init.sh && . /sw/bin/init.sh
 export PERL5LIB="" # unset broken fink perl5 libraries
 export PATH="$HOME/local/bin:/opt/local/bin:$PATH:/usr/local/bin:$HOME/code/charm.git/bin"
-export MANPATH="$MANPATH:/opt/local/man:$HOME/local/man"
+export MANPATH="/opt/local/man:$HOME/local/man:$MANPATH"
 
 export CVS_RSH="ssh"
 export CVSROOT=":ext:abecker@charm.cs.uiuc.edu:/cvsroot"
