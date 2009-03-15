@@ -91,8 +91,7 @@ export COLOR_GRAY="\[\e[1;30m\]"
 export COLOR_LIGHT_GRAY="\[\e[0;37m\]"
 
 function parse_git_branch {
-    #git rev-parse --git-dir &> /dev/null
-    [ -d $(git rev-parse --git-dir 2> /dev/null) ] || return 1
+    [[ -d $(git rev-parse --git-dir 2> /dev/null) ]] || return 1
     git_status="$(git status 2> /dev/null)"
     branch_pattern="^# On branch ([^${IFS}]*)"
     remote_pattern="# Your branch is (.*) of"
@@ -109,7 +108,7 @@ function parse_git_branch {
         fi
     fi
     if [[ ${git_status} =~ ${diverge_pattern} ]]; then
-        remote="${YELLOW}↕"
+        remote="${COLOR_YELLOW}↕"
     fi
     if [[ ${git_status} =~ ${branch_pattern} ]]; then
         branch=${BASH_REMATCH[1]}
