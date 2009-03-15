@@ -5,10 +5,15 @@
 from __future__ import division
 import cPickle
 import getopt
-from sys import argv,exit
+from sys import argv,exit,version
 import os
 import signal
+import string
 max_keyweight=1000
+
+python_version = string.split(string.split(version)[0], ".")
+if map(int, python_version) < [2, 6]:
+    exit(1)
 
 def signal_handler(arg1,arg2):
     print "Received SIGINT, trying to continue"
@@ -112,6 +117,7 @@ else:
         if userchoice!=-1:
             if len(results) > userchoice-1 : print results[userchoice-1]
         elif len(results) > 1 and completion:
-            print "\n".join(("%s__%d__%s" % (pattern,n+1,r) for n,r in enumerate(results[:8])))
+            for n,r in enumerate(results[:8]):
+                print "\n".join(("%s__%d__%s" % (pattern,n+1,r) ))
         else: 
             if results : print results[0]
