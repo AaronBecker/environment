@@ -1,0 +1,11 @@
+#!/bin/bash
+echo "Machine specific bash variables not found, using generic"
+test -r /sw/bin/init.sh && . /sw/bin/init.sh
+export PATH="$HOME/local/bin:$PATH:$HOME/code/charm.git/bin"
+export MANPATH="$HOME/local/man:$MANPATH"
+
+export CVS_RSH="ssh"
+export CVSROOT=":ext:abecker@charm.cs.uiuc.edu:/cvsroot"
+export SVNROOT="https://charm.cs.uiuc.edu/svn/cpsd"
+export EDITOR=vim
+
