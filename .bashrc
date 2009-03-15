@@ -34,6 +34,9 @@ bind "set completion-ignore-case on"
 bind "set bell-style none"
 bind "set show-all-if-ambiguous On"
 
+# prevent incorrect wrapping on window size
+shopt -s checkwinsize
+
 #autojump
 # This shell snippet sets the necessary aliases
 if [ $SHELL = "/bin/bash" ] && [ -n "$PS1" ]; then
