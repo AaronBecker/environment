@@ -96,7 +96,7 @@ function parse_git_branch {
     [[ -d $(git rev-parse --git-dir 2> /dev/null) ]] || return 1
     git_status="$(git status 2> /dev/null)"
     branch_pattern="^# On branch ([^${IFS}]*)"
-    remote_pattern="# Your branch is (.*) of"
+    remote_pattern="# Your branch is (.*)"
     diverge_pattern="# Your branch and (.*) have diverged"
     if [[ ! ${git_status}} =~ "working directory clean" ]]; then
         state="${COLOR_RED}⚡"
