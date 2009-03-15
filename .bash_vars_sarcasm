@@ -4,6 +4,8 @@ export PERL5LIB="" # unset broken fink perl5 libraries
 export PATH="$HOME/local/bin:/opt/local/bin:$PATH:/usr/local/bin:$HOME/code/charm.git/bin"
 export MANPATH="/opt/local/man:$HOME/local/man:$MANPATH"
 export LANG="en_US.UTF-8"
+export LC_ALL="en_US.UTF-8"
+export LC_CTYPE="en_US.UTF-8"
 
 export CVS_RSH="ssh"
 export CVSROOT=":ext:abecker@charm.cs.uiuc.edu:/cvsroot"
