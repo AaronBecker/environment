@@ -1,4 +1,1 @@
-OPTIONS=color,hilite_pet,lit_corridor,DECgraphics,boulder:8
-OPTIONS=!autopickup
-
-
+OPTIONS=DECgraphics,time,hilite_pet,noautopickup,showexp,color,boulder:8

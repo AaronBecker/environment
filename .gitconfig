@@ -1,4 +1,11 @@
+[user]
+    name = Aaron Becker
+    email = akbecker@gmail.com
 [color]
-    diff = auto
     status = auto
+    diff = auto
     branch = auto
+[web]
+    browser = open
+[gui]
+    recentrepo = /Users/abecker/environment.git
