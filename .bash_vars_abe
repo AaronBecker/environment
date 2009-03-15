@@ -1,0 +1,11 @@
+#!/bin/bash
+export PATH="$HOME/local/bin:$PATH"
+export MANPATH="$HOME/local/man:$MANPATH"
+
+export CVS_RSH="ssh"
+export CVSROOT=":ext:abecker@charm.cs.uiuc.edu:/cvsroot"
+export SVNROOT="https://charm.cs.uiuc.edu/svn/cpsd"
+export EDITOR=vim
+
+export LM_LICENSE_FILE="1702@barbossa:1708@barbossa:1704@barbossa.ncsa.uiuc.edu"
+

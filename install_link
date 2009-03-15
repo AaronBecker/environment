@@ -45,7 +45,7 @@ do
     cond_link $file
 done
 
-for file in `find . -depth 1 ! -name ".git" -name [.]*`
+for file in `find . -maxdepth 1 ! -name ".git" -path "./.*"`
 do
     cond_link $file
 done
