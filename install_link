@@ -40,7 +40,7 @@ do
 done
 
 find . -type d -not -path "./.*" -exec mkdir -p $target/{} \;
-for file in `find . -type f ! -name "install" ! -path "./.*"`
+for file in `find . -type f ! -name "install_link" ! -path "./.*"`
 do
     cond_link $file
 done
