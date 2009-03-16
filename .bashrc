@@ -73,6 +73,8 @@ alias sl="ls"
 alias l="ls"
 alias s="ls"
 
+alias vi="vim"
+
 export COLOR_NC="\[\e[0m\]"
 export COLOR_NONE="\[\e[0m\]"
 export COLOR_WHITE="\[\e[1;37m\]"
