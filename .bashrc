@@ -34,8 +34,8 @@ bind "set completion-ignore-case on"
 bind "set bell-style none"
 bind "set show-all-if-ambiguous On"
 
-# prevent incorrect wrapping on window size
-shopt -s checkwinsize
+shopt -s checkwinsize           # prevent incorrect wrapping on window size
+shopt -s dotglob                # include dotfiles in globs
 
 #autojump
 # This shell snippet sets the necessary aliases
@@ -58,7 +58,7 @@ fi
 function ducks {
     if [ $# -eq 0 ]
     then
-        du -ks .[^.]* * . | sort -n | awk '{print $2}' | xargs du -sh
+        du -ks * | sort -n | awk '{print $2}' | xargs du -sh
     else
         du -ks $* | sort -n | awk '{print $2}' | xargs du -sh
     fi
