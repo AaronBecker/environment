@@ -58,7 +58,7 @@ fi
 function ducks {
     if [ $# -eq 0 ]
     then
-        du -ks * | sort -n | awk '{print $2}' | xargs du -sh
+        du -ks * . | sort -n | awk '{print $2}' | xargs du -sh
     else
         du -ks $* | sort -n | awk '{print $2}' | xargs du -sh
     fi
