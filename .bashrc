@@ -173,3 +173,9 @@ function rot13 {
     echo $1 | perl -ple "y/A-Za-z/N-ZA-Mn-za-m/;"
 }
 
+
+# start ssh-agent and add my local keys
+function ssh-addall {
+    eval `ssh-agent`
+    ssh-add $HOME/.ssh/id_rsa.*[!.pub]
+}
