@@ -1,0 +1,48 @@
+#!/usr/bin/env python
+
+# weather version 1.4, http://fungi.yuggoth.org/weather/
+# Copyright (c) 2006-2008 Jeremy Stanley <fungi@yuggoth.org>.
+# Permission to use, copy, modify, and distribute this software is
+# granted under terms provided in the LICENSE file distributed with
+# this software.
+
+"""Wrapper utility using the weather.py module."""
+
+# added so distributors can consistently specify a private module location
+import os
+private_module_path = os.path.expanduser("~/local/lib/python")
+if private_module_path:
+   import sys
+   sys.path.insert(1, private_module_path)
+
+import weather
+
+# initialize options and configs
+selections = weather.Selections()
+get = selections.get
+get_bool = selections.get_bool
+
+# this mode just lists the aliases defined in the config
+if get_bool("list"): print weather.list_aliases(selections.config)
+
+# normal operation
+else:
+   for argument in selections.arguments:
+      if get_bool("conditions", argument):
+         print weather.get_metar(
+            id=get("id", argument),
+            verbose=get_bool("verbose", argument),
+            quiet=get_bool("quiet", argument),
+            headers=get("headers", argument),
+            murl=get("murl", argument)
+            )
+      if not get_bool("conditions", argument) \
+         or get_bool("forecast", argument):
+         print weather.get_forecast(
+            city=get("city", argument),
+            st=get("st", argument),
+            verbose=get_bool("verbose", argument),
+            quiet=get_bool("quiet", argument),
+            flines=get("flines", argument),
+            furl=get("furl", argument)
+            )
