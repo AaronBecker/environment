@@ -179,3 +179,14 @@ function ssh-addall {
     eval `ssh-agent`
     ssh-add $HOME/.ssh/id_rsa.*[!.pub]
 }
+
+# go up n directories
+function up {
+    LIMIT=$1
+    P=$PWD
+    for ((i=1; i <= LIMIT; i++))
+    do
+        P=$P/..
+    done
+    cd $P
+}
