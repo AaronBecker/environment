@@ -49,6 +49,6 @@ fi
 if [ "$msg" ]; then
     update http://twitter.com/statuses/update.xml
 else
-    friends http://twitter.com/statuses/friends_timeline.xml
+    friends http://twitter.com/statuses/friends_timeline.xml | less
 fi
 
