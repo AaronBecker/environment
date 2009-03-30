@@ -25,6 +25,7 @@ do
         echo "  -t, --target DIR     the root directory for all links"
         echo "  -f, --force          overwrite existing non-link files"
         echo "  -h, --help           display this message and exit"
+        exit
    esac
 done
 
