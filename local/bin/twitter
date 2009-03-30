@@ -2,16 +2,10 @@
 # a command line twitter client (using .netrc for auth)
 # adapted from cutup.org/anize
 
-[ "$1" == "-h" ] && {
- echo " use: $(basename $0) -h | [ tweet ]"
- echo "      -h help"
- echo "      no arguments gets latest updates"
- exit
-}
-
+name=""
 
 function friends {
-    curl --connect-timeout 5 -s -n $1 | awk '
+    curl --connect-timeout 5 -s -n $1 | awk -vfilter_name="$name" '
         { sub(/^[^>]*>/,"",$0) }
         /text/ { 
          sub(/<[^<]*>$/,"",$0)
@@ -27,8 +21,9 @@ function friends {
         }
         /[^_]screen_name/ { 
          sub(/<[^<]*>$/,"",$0)
-         name=$0
-         print name "\n" m "\n[ " at[1] "]\n"
+         screen_name=$0
+         if (match(tolower(screen_name), tolower(filter_name)) != 0) 
+             print screen_name "\n" m "\n[ " at[1] "]\n"
         }
         '
 }
@@ -40,6 +35,29 @@ function update {
         echo "tweet broke, post failed"
 }
 
+
+exename=$(basename $0)
+
+while [ $# != 0 ]; do
+    flag=$1
+    shift
+    case $flag in
+        "-h")
+        echo " Usage: $exename -uh | [ tweet ]"
+        echo "      -h                  display this message and exit"
+        echo "      -n NAME             display updates from screen name NAME only"
+        echo " If [tweet] is provided, it is sent as a status update. Otherwise, "
+        echo " a list of your friends' updates is given."
+        exit
+        ;;
+
+        "-n")
+        name="$1"
+        shift
+        ;;
+    esac
+done
+
 if [ -t 0 ]; then
     msg="$*"
 else
@@ -49,6 +67,6 @@ fi
 if [ "$msg" ]; then
     update http://twitter.com/statuses/update.xml
 else
-    friends http://twitter.com/statuses/friends_timeline.xml | less
+    friends http://twitter.com/statuses/friends_timeline.xml | fold -s | less -FXR
 fi
 
