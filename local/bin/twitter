@@ -1,0 +1,54 @@
+#!/bin/bash
+# a command line twitter client (using .netrc for auth)
+# adapted from cutup.org/anize
+
+[ "$1" == "-h" ] && {
+ echo " use: $(basename $0) -h | [ tweet ]"
+ echo "      -h help"
+ echo "      no arguments gets latest updates"
+ exit
+}
+
+
+function friends {
+    curl --connect-timeout 5 -s -n $1 | awk '
+        { sub(/^[^>]*>/,"",$0) }
+        /text/ { 
+         sub(/<[^<]*>$/,"",$0)
+         gsub(/&quot;/,"\"",$0)
+         gsub(/&amp;/,"&",$0)
+         gsub(/$lt;/,"<",$0)
+         gsub(/$gt;/,">",$0)
+         m=$0
+        }
+        /created_at/ { 
+         sub(/<[^<]*>$/,"",$0)
+         split($0,at,"+")
+        }
+        /[^_]screen_name/ { 
+         sub(/<[^<]*>$/,"",$0)
+         name=$0
+         print name "\n" m "\n[ " at[1] "]\n"
+        }
+        '
+}
+
+
+function update {
+    curl -s -n -d "status=$msg" $1 &>/dev/null && \
+        echo "tweet posted" || \
+        echo "tweet broke, post failed"
+}
+
+if [ -t 0 ]; then
+    msg="$*"
+else
+    msg="$(cat -)"
+fi
+
+if [ "$msg" ]; then
+    update http://twitter.com/statuses/update.xml
+else
+    friends http://twitter.com/statuses/friends_timeline.xml
+fi
+
