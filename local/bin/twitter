@@ -6,7 +6,7 @@ name=""
 url="http://twitter.com/statuses/friends_timeline.xml"
 
 function show {
-    curl --connect-timeout 5 -s -n $1 | awk -vfilter_name="$name" '
+    curl --connect-timeout 5 -s -n $1 | awk -v filter_name="$name" '
         { sub(/^[^>]*>/,"",$0) }
         /text/ { 
          sub(/<[^<]*>$/,"",$0)
