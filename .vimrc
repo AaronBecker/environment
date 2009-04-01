@@ -4,11 +4,14 @@ set nocompatible	    " screw vi
 "source $VIMRUNTIME/mswin.vim
 "behave mswin
 
+" backup and swap files
 set backspace=2		    " allow backspacing over everything in insert mode
 set writebackup
-set backupdir=~/.backup
+set backupdir=~/.vim/backup//
+set directory=~/.vim/swp//
 set backup
 "set nobackup
+
 set viminfo='20,\"250	    " read/write a .viminfo file, don't store more than
 	            	    " 250 lines of registers
 set history=250 	    " keep 250 lines of command line history
@@ -63,6 +66,12 @@ augroup filetype
     au! BufRead,BufNewFile *.g set filetype=antlr
     au! BufRead,BufNewFile *.stg set filetype=stringtemplate
     au! BufRead,BufNewFile *.clj set filetype=clojure
+augroup END
+
+" ignore swap files unless I restore manually
+augroup swap_clobber
+    au!
+    au SwapExists * let v:swapchoice='e'
 augroup END
 
 " TagList
