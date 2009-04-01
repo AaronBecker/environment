@@ -3,8 +3,9 @@
 # adapted from cutup.org/anize
 
 name=""
+url="http://twitter.com/statuses/friends_timeline.xml"
 
-function friends {
+function show {
     curl --connect-timeout 5 -s -n $1 | awk -vfilter_name="$name" '
         { sub(/^[^>]*>/,"",$0) }
         /text/ { 
@@ -29,7 +30,7 @@ function friends {
 }
 
 
-function update {
+function tweet {
     curl -s -n -d "status=$msg" $1 &>/dev/null && \
         echo "tweet posted" || \
         echo "tweet broke, post failed"
@@ -37,7 +38,6 @@ function update {
 
 
 exename=$(basename $0)
-
 while [ $# != 0 ]; do
     flag=$1
     shift
@@ -46,6 +46,8 @@ while [ $# != 0 ]; do
         echo " Usage: $exename -uh | [ tweet ]"
         echo "      -h                  display this message and exit"
         echo "      -n NAME             display updates from screen name NAME only"
+        echo "      -@                  display your most recent @replies"
+        echo "      -d                  display your most recent direct messages"
         echo " If [tweet] is provided, it is sent as a status update. Otherwise, "
         echo " a list of your friends' updates is given."
         exit
@@ -55,6 +57,13 @@ while [ $# != 0 ]; do
         name="$1"
         shift
         ;;
+
+        "-@")
+        url="http://twitter.com/statuses/replies.xml"
+        ;;
+
+        "-d")
+        url="http://twitter.com/direct_messages.xml"
     esac
 done
 
@@ -65,8 +74,9 @@ else
 fi
 
 if [ "$msg" ]; then
-    update http://twitter.com/statuses/update.xml
+    url="http://twitter.com/statuses/update.xml"
+    tweet $url
 else
-    friends http://twitter.com/statuses/friends_timeline.xml | fold -s | less -FXR
+    show $url | fold -s | less -FXR
 fi
 
