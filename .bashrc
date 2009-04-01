@@ -27,13 +27,16 @@ test -r ~/.git-completion.sh && source ~/.git-completion.sh
 export GREP_OPTIONS='--color=auto' GREP_COLOR='1;32'
 
 # python startup
-export PYTHONSTARTUP="$HOME/.pythonrc.py"
+export PYTHONPATH="$HOME/local/lib/python:$PYTHONPATH"
+test -r $HOME/.virtualenvwrapper.sh && source $HOME/.virtualenvwrapper.sh
+test -r $HOME/.virtualenvs && export WORKON_HOME=$HOME/.virtualenvs
 
 # readline options
 bind "set completion-ignore-case on"
 bind "set bell-style none"
 bind "set show-all-if-ambiguous On"
 
+# shell options
 shopt -s checkwinsize           # prevent incorrect wrapping on window size
 shopt -s dotglob                # include dotfiles in globs
 
