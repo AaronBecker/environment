@@ -1,0 +1,10 @@
+#!/bin/bash
+papers_home="Documents/library"
+hostname=`hostname -s`
+if [ "$hostname" = "sarcasm" ]; then
+    echo "Can't recv from sarcasm; gilliam doesn't have a static IP"
+    exit 1
+fi
+
+echo "Receiving from sarcasm"
+rsync -avu sarcasm.cs.uiuc.edu:$papers_home/Papers $HOME/$papers_home
