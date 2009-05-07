@@ -7,4 +7,7 @@ if [ "$hostname" = "sarcasm" ]; then
 fi
 
 echo "Receiving from sarcasm"
-rsync -avu sarcasm.cs.uiuc.edu:$papers_home/Papers $HOME/$papers_home
+remote="sarcasm.cs.uiuc.edu"
+cp $HOME/$papers_home/Papers/Library.papers $HOME/$papers_home/Papers/Library.papers.backup
+rsync -avu $remote:$papers_home/Papers $HOME/$papers_home
+scp $remote:$papers_home/Papers/Library.papers $HOME/$papers_home/Papers/Library.papers
