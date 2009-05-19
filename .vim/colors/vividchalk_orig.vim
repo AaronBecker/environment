@@ -71,6 +71,24 @@ function! s:hibg(group,guibg,first,second)
     exe "highlight ".a:group." guibg=".a:guibg." ctermbg=".ctermbg
 endfunction
 
+hi link railsMethod         PreProc
+hi link rubyDefine          Keyword
+hi link rubySymbol          Constant
+hi link rubyAccess          rubyMethod
+hi link rubyAttribute       rubyMethod
+hi link rubyEval            rubyMethod
+hi link rubyException       rubyMethod
+hi link rubyInclude         rubyMethod
+hi link rubyStringDelimiter rubyString
+hi link rubyRegexp          Regexp
+hi link rubyRegexpDelimiter rubyRegexp
+"hi link rubyConstant        Variable
+"hi link rubyGlobalVariable  Variable
+"hi link rubyClassVariable   Variable
+"hi link rubyInstanceVariable Variable
+hi link javascriptRegexpString  Regexp
+hi link javascriptNumber        Number
+hi link javascriptNull          Constant
 
 call s:hifg("Normal","#EEEEEE","White",87)
 if &background == "light" || has("gui_running")
@@ -128,46 +146,27 @@ call s:hibg("TabLineFill","#808080","Grey",83)
 
 hi Type gui=none
 hi Statement gui=none
-hi Comment gui=italic
+if !has("gui_mac")
+    " Mac GUI degrades italics to ugly underlining.
+    hi Comment gui=italic
+    hi railsUserClass  gui=italic
+    hi railsUserMethod gui=italic
+endif
 hi Identifier cterm=none
 " Commented numbers at the end are *old* 256 color values
+"highlight PreProc       guifg=#EDF8F9
 call s:hifg("Comment"        ,"#9933CC","DarkMagenta",34) " 92
+" 26 instead?
 call s:hifg("Constant"       ,"#339999","DarkCyan",21) " 30
+call s:hifg("rubyNumber"     ,"#CCFF33","Yellow",60) " 190
 call s:hifg("String"         ,"#66FF00","LightGreen",44,82) " 82
 call s:hifg("Identifier"     ,"#FFCC00","Yellow",72) " 220
 call s:hifg("Statement"      ,"#FF6600","Brown",68) " 202
 call s:hifg("PreProc"        ,"#AAFFFF","LightCyan",47) " 213
-call s:hifg("Type"           ,"#33AA00","DarkGreen",24) " 7
+call s:hifg("railsUserMethod","#AACCFF","LightCyan",27)
+call s:hifg("Type"           ,"#AAAA77","Grey",57) " 101
+call s:hifg("railsUserClass" ,"#AAAAAA","Grey",7) " 101
 call s:hifg("Special"        ,"#33AA00","DarkGreen",24) " 7
 call s:hifg("Regexp"         ,"#44B4CC","DarkCyan",21) " 74
-call s:hifg("Function"       ,"#DDE93D","Yellow",77) " 191
-call s:hifg("StorageClass"   ,"#DDE93D","Yellow",77) " 191
-
-
-hi link railsMethod         PreProc
-hi link rubyDefine          Keyword
-hi link rubySymbol          Constant
-hi link rubyAccess          rubyMethod
-hi link rubyAttribute       rubyMethod
-hi link rubyEval            rubyMethod
-hi link rubyException       rubyMethod
-hi link rubyInclude         rubyMethod
-hi link rubyStringDelimiter rubyString
-hi link rubyRegexp          Regexp
-hi link rubyRegexpDelimiter rubyRegexp
-"hi link rubyConstant        Variable
-"hi link rubyGlobalVariable  Variable
-"hi link rubyClassVariable   Variable
-"hi link rubyInstanceVariable Variable
-hi link javascriptRegexpString  Regexp
-hi link javascriptNumber        Number
-hi link javascriptNull          Constant
-
-hi railsUserClass  gui=italic
-hi railsUserMethod gui=italic
-call s:hifg("rubyNumber"     ,"#CCFF33","Yellow",60) " 190
 call s:hifg("rubyMethod"     ,"#DDE93D","Yellow",77) " 191
-call s:hifg("railsUserMethod","#AACCFF","LightCyan",27)
-call s:hifg("railsUserClass" ,"#AAAAAA","Grey",7) " 101
 "highlight railsMethod   guifg=#EE1122 ctermfg=1
-

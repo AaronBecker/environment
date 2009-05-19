@@ -18,6 +18,7 @@ set history=250 	    " keep 250 lines of command line history
 set ruler		    " show the cursor position all the time
 filetype plugin on
 " tabbing sanity
+set autoindent
 filetype indent on
 "set tabstop=4
 set shiftwidth=4
@@ -34,7 +35,6 @@ set incsearch	    	    " Incremental search
 set autowrite		    " Automatically save before commands 
                             " like :next and :make
 set hidden                  " allow modified hidden buffers
-"set foldmethod=indent      " folding is kinda lousy, imo
 set ttyfast                 " Yeah, this terminal is pretty fast :)
 set magic                   " Use pattern matching symbols
 set wildmode=list:longest   " bash style completion
