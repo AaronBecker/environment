@@ -43,11 +43,12 @@ while [ $# != 0 ]; do
     shift
     case $flag in
         "-h")
-        echo " Usage: $exename -uh | [ tweet ]"
+        echo " Usage: $exename -ud@h [ tweet ]"
         echo "      -h                  display this message and exit"
         echo "      -n NAME             display updates from screen name NAME only"
         echo "      -@                  display your most recent @replies"
         echo "      -d                  display your most recent direct messages"
+        echo "      -u [tweet]          post message as an update"
         echo " If [tweet] is provided, it is sent as a status update. Otherwise, "
         echo " a list of your friends' updates is given."
         exit
@@ -64,12 +65,16 @@ while [ $# != 0 ]; do
 
         "-d")
         url="http://twitter.com/direct_messages.xml"
+        ;;
+
+        "-u")
+        msg=$1
+        shift
+        ;;
     esac
 done
 
-if [ -t 0 ]; then
-    msg="$*"
-else
+if [ ! -t 0 ]; then
     msg="$(cat -)"
 fi
 
