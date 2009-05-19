@@ -1,0 +1,13 @@
+#!/bin/bash
+papers_home="Documents/library"
+hostname=`hostname -s`
+if [ "$hostname" = "sarcasm" ]; then
+    echo "Can't send from sarcasm; gilliam doesn't have a static IP"
+    exit 1
+fi
+
+echo "Sending to sarcasm"
+remote="sarcasm.cs.uiuc.edu"
+scp $remote:$papers_home/Papers/Library.papers $remote:$papers_home/Papers/Library.papers.backup
+rsync -avu $HOME/$papers_home/Papers $remote:$papers_home
+scp $HOME/papers_home/Papers/Library.papers $remote:$papers_home/Papers/Library.papers

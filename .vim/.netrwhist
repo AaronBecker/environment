@@ -1,8 +1,0 @@
-let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =6
-let g:netrw_dirhist_1='/Users/abecker/code/charm.git/src/langs/charj/build/src'
-let g:netrw_dirhist_2='/Users/abecker/code/charm.git/src/langs/charj/build/src/charj'
-let g:netrw_dirhist_3='/Users/abecker/code/charm.git/src/langs/charj/build/src/charj/translator'
-let g:netrw_dirhist_4='/Users/abecker/code/charm.git/src/langs/charj/src/charj/translator'
-let g:netrw_dirhist_5='/Users/abecker/.vim/colors'
-let g:netrw_dirhist_6='/Users/abecker/code/charm.git/examples/ParFUM/simple2D'
