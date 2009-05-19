@@ -27,7 +27,7 @@ syn match antlrOperator "[->=^]"
 
 syn match antlrBrace "[{}]"
 syn match antlrBrace "[\[\]]"
-syn region antlrAction matchgroup=antlrBrace start="[{\[]" end="[}\]]" contains=antlrVariable,antlrLiteral,antlrComment
+syn region antlrAction matchgroup=antlrBrace start="[\[]" end="[\]]" contains=antlrVariable,antlrLiteral,antlrComment
 syn match antlrVariable contained "$[a-zA-Z][a-zA-Z_0-9]*"
 
 syn region antlrLiteral start=+'+ end=+'+ contains=antlrCharacter
