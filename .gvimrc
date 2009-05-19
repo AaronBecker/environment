@@ -5,14 +5,16 @@
 " colorscheme ir_black
 " colorscheme moria2
 " colorscheme impact
+" colorscheme dante
+" colorscheme wombat
 colorscheme vividchalk
 
 " current line highlight
 set cursorline
 highlight CursorLine guibg=grey10
 
-" much nicer font
-set guifont=Monaco:h15
+" don't use lousy default font
+set guifont=Consolas:h15,Inconsolata:h15,DejaVu_Sans_Mono:h15,Monaco:h15
 
 " 120 columns, plus 32 for NERDTree
 set columns=152
