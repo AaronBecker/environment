@@ -41,6 +41,7 @@ set wildmode=list:longest   " bash style completion
 " get things looking nice
 syntax on
 set background=dark
+colorscheme vividchalk
 set nohlsearch
 
 " Suffixes that get lower priority when doing tab completion for filenames.

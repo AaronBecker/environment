@@ -25,7 +25,7 @@ if has("gui_macvim")
 endif
 
 " auto-start nerdtree
-augroup Startup
-    au!
-    au! VimEnter * exe 'NERDTree' | wincmd l
-augroup END
+"augroup Startup
+"    au!
+"    au! VimEnter * exe 'NERDTree' | wincmd l
+"augroup END
