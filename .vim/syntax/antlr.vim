@@ -12,22 +12,32 @@ elseif exists("b:current_syntax")
   finish
 endif
 
-syn keyword antlrKeyword grammar lexer parser tree header members options fragment returns throws scope init
+"if version < 600
+"  so <sfile>:p:h/java.vim
+"else
+"  runtime! syntax/java.vim
+"  unlet b:current_syntax
+"endif
+
+syn keyword antlrKeyword grammar lexer parser tree header members options fragment returns throws scope init rulecatch
 
 syn match  antlrCharacter '\\\(r\|n\|t\|f\|b\|"\|\'\|\\\|u\x\{4}\)' contained display
 
 syn match antlrToken "\<[A-Z_][a-zA-Z_0-9]\+\>"
-syn match antlrRule "[a-z][a-zA-Z_0-9]\+"
+syn match antlrRule "^[a-z][a-zA-Z_0-9]\+"
 syn match antlrScopeVariable '$\k\+::\k\+'
 
+syn match antlrOperator "->"
 syn match antlrOperator "[:;@.]"
 syn match antlrOperator "[()]"
 syn match antlrOperator "[?+*~|!]"
 syn match antlrOperator "[->=^]"
+  
+syn include @Java syntax/java.vim
 
 "syn match antlrBrace "[{}]"
 syn match antlrBrace "[\[\]]"
-syn region antlrAction matchgroup=antlrBrace start="[\[]" end="[\]]" contains=antlrVariable,antlrLiteral,antlrComment
+syn region antlrAction matchgroup=antlrBrace start="[{\[]" end="[}\]]" contains=antlrVariable,antlrLiteral,antlrComment,@Java
 syn match antlrVariable contained "$[a-zA-Z][a-zA-Z_0-9]*"
 
 syn region antlrLiteral start=+'+ end=+'+ contains=antlrCharacter
@@ -60,6 +70,8 @@ if version >= 508
 
   delcommand HiLink
 endif
+
+
 
 let b:current_syntax = "antlr3"
 
