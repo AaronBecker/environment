@@ -88,4 +88,7 @@ command FuzzyFinderClear :ruby @finder = nil
 " NERDTree
 map <leader>n :NERDTreeToggle<CR>
 
+let g:proj_flags="gimsvt"
+nmap <silent> <Leader>p <Plug>ToggleProject
+
 let python_highlight_all=1
