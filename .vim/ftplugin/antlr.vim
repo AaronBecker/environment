@@ -19,7 +19,7 @@ setlocal comments& comments^=sO:*\ -,mO:*\ \ ,exO:*/
 setlocal commentstring=//%s
 
 " Undo the stuff we changed.
-let b:undo_ftplugin = " formatoptions< comments< commentstring< path< includeexpr<"
+let b:undo_ftplugin = "setlocal formatoptions< comments< commentstring<"
 
 " Restore the saved compatibility options.
 let &cpo = s:save_cpo

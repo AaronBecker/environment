@@ -64,7 +64,7 @@ augroup filetype
     au! BufRead,BufNewFile *.cu set filetype=cpp
     au! BufRead,BufNewFile *.ci set filetype=cpp
     au! BufRead,BufNewFile *.cj set filetype=java
-    au! BufRead,BufNewFile *.g set filetype=antlr
+    au! BufRead,BufNewFile *.g set filetype=antlr3
     au! BufRead,BufNewFile *.stg set filetype=stringtemplate
     au! BufRead,BufNewFile *.clj set filetype=clojure
 augroup END
