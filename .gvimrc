@@ -16,8 +16,10 @@ highlight CursorLine guibg=grey10
 " don't use lousy default font
 set guifont=Consolas:h15,Inconsolata:h15,DejaVu_Sans_Mono:h15,Monaco:h15
 
-" 120 columns, plus 32 for NERDTree
-set columns=152
+" 120 columns, plus 32 for sidebar
+"set columns=152
+" 80 columns, plus 32 for sidebar
+set columns=105
 
 if has("gui_macvim")
 "    colorscheme macvim

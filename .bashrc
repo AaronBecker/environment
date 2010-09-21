@@ -78,6 +78,8 @@ alias s="ls"
 
 alias vi="vim"
 
+alias scpresume="rsync --partial --progress --rsh=ssh"
+
 export COLOR_NC="\[\e[0m\]"
 export COLOR_NONE="\[\e[0m\]"
 export COLOR_WHITE="\[\e[1;37m\]"
