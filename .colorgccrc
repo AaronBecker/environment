@@ -22,6 +22,10 @@
 
 # Define the paths to the actual location of the various compilers.
 # (Currently, colorgcc only understands these: g++ gcc c++ cc)
+#g++: /opt/local/bin/g++
+#gcc: /opt/local/bin/gcc
+#c++: /opt/local/bin/c++
+#cc:  /opt/local/bin/cc
 g++: /usr/bin/g++
 gcc: /usr/bin/gcc
 c++: /usr/bin/c++
