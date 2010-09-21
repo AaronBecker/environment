@@ -45,7 +45,7 @@ syn keyword antlrKeyword options nextgroup=antlrOptions skipwhite
 
 syn match antlrToken         "\<[A-Z_][a-zA-Z_0-9]\+\>"
 syn match antlrRule          "^[a-z][a-zA-Z_0-9]\+"
-syn match antlrSigilVariable "$[a-zA-Z][a-zA-Z0-9]*"
+syn match antlrSigilVariable "$[a-zA-Z_][a-zA-Z0-9_]*"
 
 syn match antlrOperator "[:;@.]"
 syn match antlrOperator "[()]"

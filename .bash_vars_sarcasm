@@ -1,4 +1,5 @@
 #!/bin/bash
+export ARCH=charm_mactel
 export PATH="$HOME/local/bin:/opt/local/bin:$PATH:/usr/local/bin:$HOME/code/charm.git/bin"
 export MANPATH="/opt/local/man:$HOME/local/man:$MANPATH"
 export LANG="en_US.UTF-8"
