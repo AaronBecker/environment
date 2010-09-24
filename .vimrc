@@ -32,8 +32,6 @@ set expandtab
 set textwidth=0         " Don't wrap words by default
 
 " search options
-nnoremap / /\v
-vnoremap / /\v
 set ignorecase
 set smartcase           " case insensitive matching, unless you use caps
 set gdefault            " search global by default
@@ -83,18 +81,6 @@ nmap k gk
 " Add some extra navigation keys
 noremap <space> <C-d>
 noremap <C-space> <C-u>
-
-" Detect filetypes
-augroup filetype
-    au!
-    au! BufRead,BufNewFile *.cu set filetype=cpp
-    au! BufRead,BufNewFile *.ci set filetype=ci
-    au! BufRead,BufNewFile *.cj set filetype=charj
-    au! BufRead,BufNewFile *.g set filetype=antlr3
-    au! BufRead,BufNewFile *.stg set filetype=stringtemplate
-    au! BufRead,BufNewFile *.clj set filetype=clojure
-augroup END
-
 
 " ignore swap files unless I restore manually
 augroup swap_clobber
