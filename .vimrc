@@ -54,7 +54,8 @@ set ttyfast             " Yeah, this terminal is pretty fast :)
 set magic               " Use pattern matching symbols
 set wildmenu
 set wildmode=list:longest   " bash style completion
-set listchars=trail:·   " show trailing whitespace
+set listchars=tab:▸\ ,trail:·   " show trailing whitespace
+set list
 " get things looking nice
 syntax on
 
@@ -97,6 +98,9 @@ map <leader>f :FuzzyFinderTextMate<CR>
 map <leader>b :FuzzyFinderBuffer<CR>
 let g:fuzzy_ignore = "*.o"
 command FuzzyFinderClear :ruby @finder = nil
+
+" Visual undo tree
+map <leader>u :GundoToggle<CR>
 
 " NERDTree
 map <leader>n :NERDTreeToggle<CR>
