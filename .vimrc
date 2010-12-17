@@ -54,7 +54,8 @@ set ttyfast             " Yeah, this terminal is pretty fast :)
 set magic               " Use pattern matching symbols
 set wildmenu
 set wildmode=list:longest   " bash style completion
-set listchars=tab:▸\ ,trail:·   " show trailing whitespace
+set listchars=trail:·   " show trailing whitespace
+"set listchars=trail:·   " show trailing whitespace
 set list
 " get things looking nice
 syntax on
@@ -105,6 +106,7 @@ map <leader>u :GundoToggle<CR>
 " NERDTree
 map <leader>n :NERDTreeToggle<CR>
 
+" project.vim
 let g:proj_flags="gimsvt"
 nmap <silent> <Leader>p <Plug>ToggleProject
 

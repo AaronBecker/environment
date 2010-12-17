@@ -163,6 +163,20 @@ hi link javascriptRegexpString  Regexp
 hi link javascriptNumber        Number
 hi link javascriptNull          Constant
 
+
+highlight link diffAdded        String
+highlight link diffRemoved      Statement
+highlight link diffLine         PreProc
+highlight link diffSubname      Comment
+
+highlight DiffAdd       ctermbg=4 guibg=DarkBlue
+highlight DiffChange    ctermbg=5 guibg=DarkMagenta
+highlight DiffDelete    ctermfg=12 ctermbg=6 gui=bold guifg=Blue guibg=DarkCyan
+highlight DiffText      ctermbg=DarkRed
+highlight DiffText      cterm=bold ctermbg=9 gui=bold guibg=Red
+
+
+
 hi railsUserClass  gui=italic
 hi railsUserMethod gui=italic
 call s:hifg("rubyNumber"     ,"#CCFF33","Yellow",60) " 190

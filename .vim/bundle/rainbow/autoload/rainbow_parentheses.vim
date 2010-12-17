@@ -27,20 +27,20 @@
 
 function rainbow_parentheses#Activate()
     highlight default level1c   guifg=OrangeRed1
-    highlight default level2c   guifg=LightGoldenRod1
-    highlight default level3c   guifg=DeepSkyBlue1
-    highlight default level4c   guifg=HotPink1
-    highlight default level5c   guifg=chartreuse1
-    highlight default level6c   guifg=OrangeRed1
+    highlight default level2c   guifg=chartreuse1
+    highlight default level3c   guifg=LightGoldenRod1
+    highlight default level4c   guifg=DeepSkyBlue1
+    highlight default level5c   guifg=OrangeRed1
+    highlight default level6c   guifg=chartreuse1
     highlight default level7c   guifg=LightGoldenRod1
     highlight default level8c   guifg=DeepSkyBlue1
-    highlight default level9c   guifg=HotPink1
+    highlight default level9c   guifg=OrangeRed1
     highlight default level10c  guifg=chartreuse1
-    highlight default level11c  guifg=OrangeRed1
-    highlight default level12c  guifg=LightGoldenRod1
+    highlight default level11c  guifg=HotPink1
+    highlight default level12c  guifg=OrangeRed1
     highlight default level13c  guifg=DeepSkyBlue1
-    highlight default level14c  guifg=HotPink1
-    highlight default level15c  guifg=chartreuse1
+    highlight default level14c  guifg=chartreuse1
+    highlight default level15c  guifg=LightGoldenRod1
     highlight default level16c  guifg=White
     let s:rainbow_parenthesis_active = 1
 endfunction
