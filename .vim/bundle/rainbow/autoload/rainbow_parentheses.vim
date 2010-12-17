@@ -55,7 +55,7 @@ function rainbow_parentheses#Clear()
 endfunction
 
 function rainbow_parentheses#Toggle ()
-    if ! exists('rainbow_parenthesis_active')
+    if ! exists('s:rainbow_parenthesis_active')
         call rainbow_parentheses#LoadRound ()
     endif
     if s:rainbow_parenthesis_active != 0
