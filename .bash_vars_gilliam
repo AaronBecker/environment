@@ -1,5 +1,5 @@
 #!/bin/bash
-export PATH="$HOME/local/bin:/opt/local/bin:$PATH:/usr/local/bin:$HOME/code/charm.git/bin:$HOME/local/clang/bin"
+export PATH="$HOME/local/bin:/opt/local/bin:$PATH:/usr/local/bin:$HOME/src/charm/bin:$HOME/local/clang/bin"
 export MANPATH="/opt/local/man:$HOME/local/man:$HOME/local/clang/share/man:$MANPATH"
 export LANG="en_US.UTF-8"
 export LC_ALL="en_US.UTF-8"
