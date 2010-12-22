@@ -56,7 +56,7 @@ set wildmenu
 set wildmode=list:longest   " bash style completion
 set listchars=trail:·   " show trailing whitespace
 "set listchars=trail:·   " show trailing whitespace
-set list
+"set list
 " get things looking nice
 syntax on
 
