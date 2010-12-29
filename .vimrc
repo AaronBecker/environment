@@ -57,6 +57,9 @@ set wildmode=list:longest   " bash style completion
 set listchars=trail:·   " show trailing whitespace
 "set listchars=trail:·   " show trailing whitespace
 "set list
+set autoread
+set autowrite
+
 " get things looking nice
 syntax on
 
@@ -64,8 +67,6 @@ set background=dark
 colorscheme vividchalk
 set nohlsearch
 
-" autosave when we lose focus
-au FocusLost * :wa
 
 " Suffixes that get lower priority when doing tab completion for filenames.
 " These are files we are not likely to want to edit or read.
