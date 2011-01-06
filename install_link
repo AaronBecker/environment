@@ -3,7 +3,6 @@
 target=$HOME
 force=false
 
-
 while [ $# != 0 ]
 do
     flag="$1"
