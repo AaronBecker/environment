@@ -76,7 +76,7 @@ set suffixes=.bak,~,.swp,.o,.info,.aux,.log,.dvi,.bbl,.blg,.brf,.cb,.ind,.idx,.i
 vnoremap p <Esc>:let current_reg = @"<CR>gvdi<C-R>=current_reg<CR><Esc>
 
 " autosave when we lose focus
-au FocusLost * :wa
+"au FocusLost * :wa
 
 " Make j and k go by visible lines instead of logical lines
 nmap j gj
