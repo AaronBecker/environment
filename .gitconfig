@@ -9,3 +9,5 @@
     browser = open
 [gui]
     recentrepo = /Users/abecker/environment.git
+[core]
+	editor = vim
